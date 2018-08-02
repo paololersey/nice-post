@@ -7,16 +7,16 @@ const router = express.Router();
 // MongoDB URL from the docker-compose file
 //const dbHost = 'mongodb://database/mean-docker';
 
-const dbHost = 'mongodb://localhost/nice-post';
+var dbHost = 'mongodb://localhost/nice-post';
 if(process.env.MONGODB_URI){
-   dbHost = 'mongodb://heroku_r5bwrx0k:pf8a1p1koj67b8tm3hjkdje2sf@ds139082.mlab.com:39082/heroku_r5bwrx0k';
+   dbHost = 'mongodb://ds139082.mlab.com:39082/heroku_r5bwrx0k';
 }
 
 // Connect to mongodb
 mongoose.connect(dbHost);
 
 // create mongoose schema
-const sentenceSchema = new mongoose.Schema({
+var sentenceSchema = new mongoose.Schema({
   name: String,
   time: Date,
   sentence: String
@@ -24,7 +24,7 @@ const sentenceSchema = new mongoose.Schema({
 mongoose.model('Sentence', sentenceSchema);
 
 // create mongoose model
-const Sentence = mongoose.model('Sentence', sentenceSchema);
+var Sentence = mongoose.model('Sentence', sentenceSchema);
 sentenceSchema.plugin(autoIncrement, {inc_field: 'id'});
 
 /* GET api listing. */
