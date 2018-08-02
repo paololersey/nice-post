@@ -9,7 +9,7 @@ const router = express.Router();
 
 const dbHost = 'mongodb://localhost/nice-post';
 if(process.env.MONGODB_URI){
-   dbHost = 'mongodb://ds139082.mlab.com:39082/heroku_r5bwrx0k';
+   dbHost = 'mongodb://heroku_r5bwrx0k:pf8a1p1koj67b8tm3hjkdje2sf@ds139082.mlab.com:39082/heroku_r5bwrx0k';
 }
 
 // Connect to mongodb
