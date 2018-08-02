@@ -1,0 +1,65 @@
+/* You can add global styles to this file, and also import other style files */
+
+.body {
+  font-family: Helvetica;
+}
+
+.float-right {
+  float: right;
+}
+
+.btn-primary {
+  background-color: rgb(147, 255, 47);
+  border-color: rgb(147, 255, 47);
+}
+
+.btn-primary:hover {
+  background-color: rgb(125, 223, 13);
+  border-color: rgb(125, 223, 13);
+}
+
+.btn-primary:active {
+  background-color: rgb(79, 223, 13);
+  border-color: rgb(79, 223, 13);
+}
+
+.btn-primary:disabled {
+  background-color: rgb(156, 236, 119);
+  border-color: rgb(156, 236, 119);
+}
+
+.btn-link {
+  color: rgb(147, 255, 47)
+}
+
+.btn-link:hover {
+  color: rgb(147, 255, 47)
+}
+
+.ng-valid[required],
+.ng-valid.required {
+  border: 2px solid #42A948;
+  /* green */
+}
+
+/*.ng-invalid.ng-dirty {
+    border: 2px solid #a94442; 
+}*/
+
+.has-error {
+  border: 2px solid #a94442;
+}
+
+.accordionParent .card-header:after {
+  font-family: FontAwesome;
+  content: "\f068";
+  float: right;
+  cursor: pointer;
+}
+
+.accordionParent .card-header.collapsed:after {
+  font-family: FontAwesome;
+  content: "\f067";
+  float: right;
+  cursor: pointer;
+}
