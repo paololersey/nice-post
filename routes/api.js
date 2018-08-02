@@ -29,7 +29,7 @@ sentenceSchema.plugin(autoIncrement, {inc_field: 'id'});
 
 /* GET api listing. */
 router.get('/', (req, res) => {
-       res.sendfile('./../app/angular-front-end/dist/index.html')
+       res.sendFile('./../app/angular-front-end/dist/index.html')
 });
 
 /* GET all sentences. */
