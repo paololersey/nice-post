@@ -5,7 +5,7 @@ const express = require('express');
 const router = express.Router();
 
 router.use(express.static(__dirname + './../angular-front-end/dist'))
-console.log("dirname" + __dirname);
+console.log("dirname = " + __dirname);
 // MongoDB URL from the docker-compose file
 //const dbHost = 'mongodb://database/mean-docker';
 
@@ -32,7 +32,7 @@ sentenceSchema.plugin(autoIncrement, {inc_field: 'id'});
 
 /* GET api listing. */
 router.get('/', (req, res) => {
-       res.sendfile('./angular-front-end/dist/index.html')
+       res.sendfile('./index.html')
 });
 
 
