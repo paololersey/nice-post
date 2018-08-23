@@ -27,10 +27,15 @@ mongoose.model('Sentence', sentenceSchema);
 var Sentence = mongoose.model('Sentence', sentenceSchema);
 sentenceSchema.plugin(autoIncrement, {inc_field: 'id'});
 
+router.use(express.static(__dirname + '/../angular-front-end/dist'))
+
 /* GET api listing. */
 router.get('/', (req, res) => {
        res.sendfile('./angular-front-end/dist/index.html')
 });
+
+
+
 
 /* GET all sentences. */
 router.get('/sentences', (req, res) => {
