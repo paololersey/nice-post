@@ -4,15 +4,17 @@ const autoIncrement = require('mongoose-sequence')(mongoose);
 const express = require('express');
 const router = express.Router();
 
-//router.use(express.static(__dirname + './angular-front-end/dist'))
+router.use(express.static(__dirname + '/../angular-front-end/dist'))
+
+
 console.log("dirname = " + __dirname);
 // MongoDB URL from the docker-compose file
 //const dbHost = 'mongodb://database/mean-docker';
 
 var dbHost = 'mongodb://localhost/nice-post';
-if(process.env.MONGODB_URI){
+//if(process.env.MONGODB_URI){
    dbHost = 'mongodb://ds139082.mlab.com:39082/heroku_r5bwrx0k';
-}
+//}
 
 // Connect to mongodb
 mongoose.connect(dbHost);
