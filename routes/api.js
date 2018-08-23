@@ -32,7 +32,7 @@ sentenceSchema.plugin(autoIncrement, {inc_field: 'id'});
 
 /* GET api listing. */
 router.get('/', (req, res) => {
-       res.sendfile('./index.html')
+       res.sendfile('./angular-front-end/dist/index.html')
 });
 
 
