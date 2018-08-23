@@ -41,7 +41,7 @@ router.get('/', (req, res) => {
 /* GET all sentences. */
 router.get('/sentences', (req, res) => {
     Sentence.find({}, (err, sentences) => {
-        if (err) res.status(500).send(error)
+        if (err) res.status(500).send(err)
 
         res.status(200).json(sentences);
     });
@@ -50,7 +50,7 @@ router.get('/sentences', (req, res) => {
 /* GET one sentences. */
 router.get('/sentences/:id', (req, res) => {
     Sentence.findById(req.param.id, (err, sentences) => {
-        if (err) res.status(500).send(error)
+        if (err) res.status(500).send(err)
 
         res.status(200).json(sentences);
     });
@@ -58,7 +58,7 @@ router.get('/sentences/:id', (req, res) => {
 
 router.delete('/sentences/:id', (req, res) => {
     Sentence.remove({_id: req.params.id}, (err, sentences) => {
-        if (err) res.status(500).send(error)
+        if (err) res.status(500).send(err)
 
         res.status(200).json(sentences);
     });
