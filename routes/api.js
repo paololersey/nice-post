@@ -4,7 +4,7 @@ const autoIncrement = require('mongoose-sequence')(mongoose);
 const express = require('express');
 const router = express.Router();
 
-router.use(express.static(__dirname + './../../angular-front-end/dist'))
+router.use(express.static(__dirname + './angular-front-end/dist'))
 console.log("dirname = " + __dirname);
 // MongoDB URL from the docker-compose file
 //const dbHost = 'mongodb://database/mean-docker';
