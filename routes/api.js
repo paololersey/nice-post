@@ -4,6 +4,8 @@ const autoIncrement = require('mongoose-sequence')(mongoose);
 const express = require('express');
 const router = express.Router();
 
+router.use(express.static(__dirname + './../angular-front-end/dist'))
+
 // MongoDB URL from the docker-compose file
 //const dbHost = 'mongodb://database/mean-docker';
 
@@ -27,7 +29,6 @@ mongoose.model('Sentence', sentenceSchema);
 var Sentence = mongoose.model('Sentence', sentenceSchema);
 sentenceSchema.plugin(autoIncrement, {inc_field: 'id'});
 
-router.use(express.static(__dirname + '/../angular-front-end/dist'))
 
 /* GET api listing. */
 router.get('/', (req, res) => {
