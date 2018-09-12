@@ -4,7 +4,7 @@ const autoIncrement = require('mongoose-sequence')(mongoose);
 const express = require('express');
 const router = express.Router();
 
-router.use(express.static(__dirname));
+router.use(express.static(__dirname + '/dist'));
 
 
 console.log("dirname = " + __dirname);
