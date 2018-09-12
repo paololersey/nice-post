@@ -14,7 +14,7 @@ export class ViewTableComponent implements OnInit {
 
   // Link to our api, pointing to localhost
   API = 'http://localhost:3000';
-
+ 
   // Declare empty list of sentences
   sentences: any[] = [];
 
@@ -31,7 +31,7 @@ export class ViewTableComponent implements OnInit {
   }
 
   deleteSentence(id) {
-    this.http.delete(`${this.API}/sentences/` + id)
+    this.http.delete(`sentences/` + id)
       .map(res => res.json())
       .subscribe(() => {
         this.getAllSentences();
@@ -42,7 +42,7 @@ export class ViewTableComponent implements OnInit {
 
   // Get all Sentences from the API
   getAllSentences() {
-    this.http.get(`${this.API}/sentences`)
+    this.http.get(`sentences`)
       .map(res => res.json())
       .subscribe(sentences => {
         console.log(sentences)
