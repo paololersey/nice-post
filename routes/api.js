@@ -11,11 +11,11 @@ console.log("dirname = " + __dirname);
 // MongoDB URL from the docker-compose file
 //const dbHost = 'mongodb://database/mean-docker';
 
-var dbHost = 'mongodb://localhost/nice-post';
-if(process.env.MONGODB_URI){
-   dbHost = 'mongodb://ds139082.mlab.com:39082/heroku_r5bwrx0k';
+//var dbHost = 'mongodb://localhost/nice-post';
+//if(process.env.MONGODB_URI){
+   var dbHost = 'mongodb://ds139082.mlab.com:39082/heroku_r5bwrx0k';
    console.log('dbHost='+dbHost);
-}
+//}
 
 // Connect to mongodb
 mongoose.connect(dbHost);
