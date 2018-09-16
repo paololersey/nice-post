@@ -331,7 +331,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/navigator/navigator.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!-- Bootstrap Navbar -->\n<nav class=\"navbar navbar-light bg-faded\">\n  <div class=\"container\">\n    <a class=\"navbar-brand\" href=\"#\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Tooltip on top\">\n      <b>Queste sono frasi, detti, battute, freddure, insomma le frasi da ricordare che un papà vuole ricordare dei suoi piccoletti </b>\n      <i class=\"far fa-smile\"></i>\n    </a>\n  </div>\n</nav>\n"
+module.exports = "<!-- Bootstrap Navbar -->\n<nav class=\"navbar navbar-light bg-faded\">\n  <div class=\"container\">\n    <a class=\"navbar-brand\" href=\"#\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Tooltip on top\">\n      <b>Frasi celebri </b>\n      <i class=\"far fa-smile\"></i>\n    </a>\n  </div>\n</nav>\n"
 
 /***/ }),
 
