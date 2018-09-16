@@ -84,7 +84,7 @@ var AddSentenceComponent = (function () {
         var name = model.name;
         var sentence = model.sentence;
         var time = model.time;
-        this.http.post(this.API + "/sentences", { name: name, sentence: sentence, time: time })
+        this.http.post("sentences", { name: name, sentence: sentence, time: time })
             .map(function (res) { return res.json(); })
             .subscribe(function () {
             _this.emitService.startSearch(true);
@@ -93,7 +93,7 @@ var AddSentenceComponent = (function () {
     // Get all Sentences from the API
     AddSentenceComponent.prototype.getAllSentences = function () {
         var _this = this;
-        this.http.get(this.API + "/sentences")
+        this.http.get("sentences")
             .map(function (res) { return res.json(); })
             .subscribe(function (sentences) {
             console.log(sentences);
@@ -440,7 +440,7 @@ var ViewTableComponent = (function () {
     };
     ViewTableComponent.prototype.deleteSentence = function (id) {
         var _this = this;
-        this.http.delete(this.API + "/sentences/" + id)
+        this.http.delete("sentences/" + id)
             .map(function (res) { return res.json(); })
             .subscribe(function () {
             _this.getAllSentences();
@@ -449,7 +449,7 @@ var ViewTableComponent = (function () {
     // Get all Sentences from the API
     ViewTableComponent.prototype.getAllSentences = function () {
         var _this = this;
-        this.http.get(this.API + "/sentences")
+        this.http.get("sentences")
             .map(function (res) { return res.json(); })
             .subscribe(function (sentences) {
             console.log(sentences);

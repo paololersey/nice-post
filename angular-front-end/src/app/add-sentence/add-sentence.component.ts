@@ -31,7 +31,7 @@ export class AddSentenceComponent implements OnInit {
     var name = model.name;
     var sentence = model.sentence;
     var time = model.time;
-    this.http.post(`${this.API}/sentences`, { name, sentence, time })
+    this.http.post(`sentences`, { name, sentence, time })
       .map(res => res.json())
       .subscribe(() => {
         this.emitService.startSearch(true);
@@ -41,7 +41,7 @@ export class AddSentenceComponent implements OnInit {
 
   // Get all Sentences from the API
   getAllSentences() {
-    this.http.get(`${this.API}/sentences`)
+    this.http.get(`sentences`)
       .map(res => res.json())
       .subscribe(sentences => {
         console.log(sentences)
