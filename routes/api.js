@@ -13,7 +13,7 @@ console.log("dirname = " + __dirname);
 
 var dbHost = 'mongodb://localhost/nice-post';
 if(process.env.MONGODB_URI){
-   dbHost = 'mongodb://ds139082.mlab.com:39082/heroku_r5bwrx0k';
+   dbHost = 'mongodb://paolo.spadoni:mongopwd2@ds139082.mlab.com:39082/heroku_r5bwrx0k';
    console.log('dbHost='+dbHost);
 }
 
