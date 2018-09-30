@@ -9,11 +9,11 @@ router.use(express.static(__dirname + '/../dist'));
 
 console.log("dirname = " + __dirname);
 // MongoDB URL from the docker-compose file
-var dbHost = 'mongodb://database/nice-post';
+// var dbHost = 'mongodb://database/nice-post';
 
 /*********************************************/ 
 /* in order to run it locally without docker */ 
-//var dbHost = 'mongodb://localhost/nice-post';
+var dbHost = 'mongodb://localhost/nice-post';
 /*********************************************/ 
 
 if(process.env.MONGODB_URI){

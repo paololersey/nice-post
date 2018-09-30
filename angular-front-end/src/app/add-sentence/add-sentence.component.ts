@@ -13,7 +13,7 @@ import 'rxjs/add/operator/map';
 })
 export class AddSentenceComponent implements OnInit {
 
-  // Link to our api, pointing to localhost
+  // Link to our api, pointing to localhost 
   API = 'http://localhost:3000';
 
   // Declare empty list of sentences

@@ -69,7 +69,7 @@ var AddSentenceComponent = (function () {
     function AddSentenceComponent(http, emitService) {
         this.http = http;
         this.emitService = emitService;
-        // Link to our api, pointing to localhost
+        // Link to our api, pointing to localhost - use with docker
         this.API = 'http://localhost:3000';
         // Declare empty list of sentences
         this.sentences = [];
@@ -84,7 +84,7 @@ var AddSentenceComponent = (function () {
         var name = model.name;
         var sentence = model.sentence;
         var time = model.time;
-        this.http.post("sentences", { name: name, sentence: sentence, time: time })
+        this.http.post(this.API + "/sentences", { name: name, sentence: sentence, time: time })
             .map(function (res) { return res.json(); })
             .subscribe(function () {
             _this.emitService.startSearch(true);
@@ -93,7 +93,7 @@ var AddSentenceComponent = (function () {
     // Get all Sentences from the API
     AddSentenceComponent.prototype.getAllSentences = function () {
         var _this = this;
-        this.http.get("sentences")
+        this.http.get(this.API + "/sentences")
             .map(function (res) { return res.json(); })
             .subscribe(function (sentences) {
             console.log(sentences);

@@ -14,17 +14,17 @@ export class ViewTableComponent implements OnInit {
 
   // Link to our api, pointing to localhost
   API = 'http://localhost:3000';
- 
+
   // Declare empty list of sentences
   sentences: any[] = [];
 
   constructor(private http: Http, private emitService: EmitService) {
     emitService.flagSearch.subscribe(item => {
-        console.log(item);
-        this.getAllSentences();
-        
+      console.log(item);
+      this.getAllSentences();
+
     })
-}
+  }
   // Angular 2 Life Cycle event when component has been initialized
   ngOnInit() {
     this.getAllSentences();
@@ -38,7 +38,7 @@ export class ViewTableComponent implements OnInit {
       })
   }
 
-  
+
 
   // Get all Sentences from the API
   getAllSentences() {
@@ -46,8 +46,19 @@ export class ViewTableComponent implements OnInit {
       .map(res => res.json())
       .subscribe(sentences => {
         console.log(sentences)
-        this.emitService.sentences = sentences
-        this.sentences = sentences
+        this.emitService.sentences = sentences;
+        sentences.map((sentence) => {
+          switch (sentence.name) {
+            case 'Manu':
+              sentence.srcPhoto = './../../assets/Manu_20180908_165339.jpg';
+              break;
+            case 'Noemi':
+              sentence.srcPhoto = './../../assets/Noemi_20180808.jpg';
+              break;
+          }
+        })
+        this.sentences = sentences;
+
       })
   }
 }

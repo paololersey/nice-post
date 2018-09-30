@@ -34,25 +34,25 @@
       <table class="table table-striped" [mfData]="data" #mf="mfDataTable" [mfRowsOnPage]="5">
         <thead>
           <tr>
-            <th style="width: 10%">
+            <th style="width: 15%">
               <mfDefaultSorter by="name">Name</mfDefaultSorter>
             </th>
-            <th style="width: 70%">
+            <th style="width: 65%">
               <mfDefaultSorter by="sentence">Frase celebre</mfDefaultSorter>
             </th>
             <th style="width: 10%">
               <mfDefaultSorter by="time">Quando</mfDefaultSorter>
             </th>
             <th style="width: 10%">
-              <mfDefaultSorter by="delete">Delete</mfDefaultSorter>
+              <mfDefaultSorter by="delete"></mfDefaultSorter>
             </th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let item of sentences">
-            <td>{{item.name}}</td>
-            <td>{{item.sentence}}</td>
-            <td>{{item.time | date}}</td>
+          <tr *ngFor="let sentence of sentences">
+            <td><img src="{{sentence.srcPhoto}}" /></td>
+            <td>{{sentence.sentence}}</td>
+            <td>{{sentence.time | date}}</td>
             <td>
               <i class="fa fa-trash" aria-hidden="true" (click)="deleteSentence(sentence._id)" [style.cursor]="pointer"></i>
             </td>
@@ -61,11 +61,13 @@
         <tfoot>
           <tr>
             <td colspan="4">
-              <mfBootstrapPaginator [rowsOnPageSet]="[1,1,1]"></mfBootstrapPaginator>
+              <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator>
             </td>
           </tr>
         </tfoot>
       </table>
+
+      
     </div>
   </div>
 </div>

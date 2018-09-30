@@ -69,7 +69,7 @@ var AddSentenceComponent = (function () {
     function AddSentenceComponent(http, emitService) {
         this.http = http;
         this.emitService = emitService;
-        // Link to our api, pointing to localhost
+        // Link to our api, pointing to localhost 
         this.API = 'http://localhost:3000';
         // Declare empty list of sentences
         this.sentences = [];
@@ -380,7 +380,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".accordion .card-header:after{\n    font-family: FontAwesome;\n    content: \"\\F068\";\n    float:right;\n}\n.accordion .card-header.collapsed:after{\n    font-family: FontAwesome;\n    content: \"\\F067\";\n    float:right;\n}\n\n.card-body{\n   padding: 0\n}", ""]);
+exports.push([module.i, ".accordion .card-header:after{\n    font-family: FontAwesome;\n    content: \"\\F068\";\n    float:right;\n}\n.accordion .card-header.collapsed:after{\n    font-family: FontAwesome;\n    content: \"\\F067\";\n    float:right;\n}\n\n.card-body{\n   padding: 0\n}\n\nimg {\n    width: 50%\n }\n", ""]);
 
 // exports
 
@@ -393,7 +393,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/view/view-table.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!--<div id=\"accordionTable\" class=\"accordionParent\">\n\n  <div class=\"card mb-0\">\n    <div class=\"card-header collapsed\" data-toggle=\"collapse\" href=\"#collapseTable\">\n      <a class=\"card-title\">\n          <b>Visualizza</b>\n      </a>\n    </div>\n    <div id=\"collapseTable\" class=\"card-body collapse\" data-parent=\"#accordionTable\">\n      <div  class=\"card card-block col-md-12\" *ngFor=\"let sentence of sentences\">\n        <div class=\"row\">\n          <div class=\"col-md-7\">\n            <h4 class=\"card-title\"> {{sentence.name}} - {{sentence.sentence}}</h4>\n          </div>\n          <div class=\"col-md-3\">\n            <h4 class=\"card-title\"> {{sentence.time | date}} </h4>\n          </div>\n          <div class=\"col-md-1\">\n            <i class=\"fa fa-trash\" aria-hidden=\"true\" (click)=\"deleteSentence(sentence._id)\" [style.cursor]=\"pointer\"></i>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>-->\n<div id=\"accordionTable\" class=\"accordionParent\">\n  <div class=\"card mb-0\">\n    <div class=\"card-header collapsed\" data-toggle=\"collapse\" href=\"#collapseTable\">\n      <a class=\"card-title\">\n        <b>Visualizza</b>\n      </a>\n    </div>\n    <div id=\"collapseTable\" class=\"card-body collapse\" data-parent=\"#accordionTable\">\n      <table class=\"table table-striped\" [mfData]=\"data\" #mf=\"mfDataTable\" [mfRowsOnPage]=\"5\">\n        <thead>\n          <tr>\n            <th style=\"width: 10%\">\n              <mfDefaultSorter by=\"name\">Name</mfDefaultSorter>\n            </th>\n            <th style=\"width: 70%\">\n              <mfDefaultSorter by=\"sentence\">Frase celebre</mfDefaultSorter>\n            </th>\n            <th style=\"width: 10%\">\n              <mfDefaultSorter by=\"time\">Quando</mfDefaultSorter>\n            </th>\n            <th style=\"width: 10%\">\n              <mfDefaultSorter by=\"delete\">Delete</mfDefaultSorter>\n            </th>\n          </tr>\n        </thead>\n        <tbody>\n          <tr *ngFor=\"let item of sentences\">\n            <td>{{item.name}}</td>\n            <td>{{item.sentence}}</td>\n            <td>{{item.time | date}}</td>\n            <td>\n              <i class=\"fa fa-trash\" aria-hidden=\"true\" (click)=\"deleteSentence(sentence._id)\" [style.cursor]=\"pointer\"></i>\n            </td>\n          </tr>\n        </tbody>\n        <tfoot>\n          <tr>\n            <td colspan=\"4\">\n              <mfBootstrapPaginator [rowsOnPageSet]=\"[1,1,1]\"></mfBootstrapPaginator>\n            </td>\n          </tr>\n        </tfoot>\n      </table>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<!--<div id=\"accordionTable\" class=\"accordionParent\">\n\n  <div class=\"card mb-0\">\n    <div class=\"card-header collapsed\" data-toggle=\"collapse\" href=\"#collapseTable\">\n      <a class=\"card-title\">\n          <b>Visualizza</b>\n      </a>\n    </div>\n    <div id=\"collapseTable\" class=\"card-body collapse\" data-parent=\"#accordionTable\">\n      <div  class=\"card card-block col-md-12\" *ngFor=\"let sentence of sentences\">\n        <div class=\"row\">\n          <div class=\"col-md-7\">\n            <h4 class=\"card-title\"> {{sentence.name}} - {{sentence.sentence}}</h4>\n          </div>\n          <div class=\"col-md-3\">\n            <h4 class=\"card-title\"> {{sentence.time | date}} </h4>\n          </div>\n          <div class=\"col-md-1\">\n            <i class=\"fa fa-trash\" aria-hidden=\"true\" (click)=\"deleteSentence(sentence._id)\" [style.cursor]=\"pointer\"></i>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>-->\n<div id=\"accordionTable\" class=\"accordionParent\">\n  <div class=\"card mb-0\">\n    <div class=\"card-header collapsed\" data-toggle=\"collapse\" href=\"#collapseTable\">\n      <a class=\"card-title\">\n        <b>Visualizza</b>\n      </a>\n    </div>\n    <div id=\"collapseTable\" class=\"card-body collapse\" data-parent=\"#accordionTable\">\n      <table class=\"table table-striped\" [mfData]=\"data\" #mf=\"mfDataTable\" [mfRowsOnPage]=\"5\">\n        <thead>\n          <tr>\n            <th style=\"width: 15%\">\n              <mfDefaultSorter by=\"name\">Name</mfDefaultSorter>\n            </th>\n            <th style=\"width: 65%\">\n              <mfDefaultSorter by=\"sentence\">Frase celebre</mfDefaultSorter>\n            </th>\n            <th style=\"width: 10%\">\n              <mfDefaultSorter by=\"time\">Quando</mfDefaultSorter>\n            </th>\n            <th style=\"width: 10%\">\n              <mfDefaultSorter by=\"delete\"></mfDefaultSorter>\n            </th>\n          </tr>\n        </thead>\n        <tbody>\n          <tr *ngFor=\"let sentence of sentences\">\n            <td><img src=\"{{sentence.srcPhoto}}\" /></td>\n            <td>{{sentence.sentence}}</td>\n            <td>{{sentence.time | date}}</td>\n            <td>\n              <i class=\"fa fa-trash\" aria-hidden=\"true\" (click)=\"deleteSentence(sentence._id)\" [style.cursor]=\"pointer\"></i>\n            </td>\n          </tr>\n        </tbody>\n        <tfoot>\n          <tr>\n            <td colspan=\"4\">\n              <mfBootstrapPaginator [rowsOnPageSet]=\"[5,10,25]\"></mfBootstrapPaginator>\n            </td>\n          </tr>\n        </tfoot>\n      </table>\n\n      \n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -454,6 +454,16 @@ var ViewTableComponent = (function () {
             .subscribe(function (sentences) {
             console.log(sentences);
             _this.emitService.sentences = sentences;
+            sentences.map(function (sentence) {
+                switch (sentence.name) {
+                    case 'Manu':
+                        sentence.srcPhoto = './../../assets/Manu_20180908_165339.jpg';
+                        break;
+                    case 'Noemi':
+                        sentence.srcPhoto = './../../assets/Noemi_20180808.jpg';
+                        break;
+                }
+            });
             _this.sentences = sentences;
         });
     };
