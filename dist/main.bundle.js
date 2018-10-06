@@ -380,7 +380,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".accordion .card-header:after{\n    font-family: FontAwesome;\n    content: \"\\F068\";\n    float:right;\n}\n.accordion .card-header.collapsed:after{\n    font-family: FontAwesome;\n    content: \"\\F067\";\n    float:right;\n}\n\n.card-body{\n   padding: 0\n}\n\nimg {\n    width: 50%\n }\n", ""]);
+exports.push([module.i, ".accordion .card-header:after{\n    font-family: FontAwesome;\n    content: \"\\F068\";\n    float:right;\n}\n.accordion .card-header.collapsed:after{\n    font-family: FontAwesome;\n    content: \"\\F067\";\n    float:right;\n}\n\n.card-body{\n   padding: 0\n}\nimg {\n    width: 60%\n }\n\n", ""]);
 
 // exports
 
@@ -393,7 +393,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/view/view-table.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!--<div id=\"accordionTable\" class=\"accordionParent\">\n\n  <div class=\"card mb-0\">\n    <div class=\"card-header collapsed\" data-toggle=\"collapse\" href=\"#collapseTable\">\n      <a class=\"card-title\">\n          <b>Visualizza</b>\n      </a>\n    </div>\n    <div id=\"collapseTable\" class=\"card-body collapse\" data-parent=\"#accordionTable\">\n      <div  class=\"card card-block col-md-12\" *ngFor=\"let sentence of sentences\">\n        <div class=\"row\">\n          <div class=\"col-md-7\">\n            <h4 class=\"card-title\"> {{sentence.name}} - {{sentence.sentence}}</h4>\n          </div>\n          <div class=\"col-md-3\">\n            <h4 class=\"card-title\"> {{sentence.time | date}} </h4>\n          </div>\n          <div class=\"col-md-1\">\n            <i class=\"fa fa-trash\" aria-hidden=\"true\" (click)=\"deleteSentence(sentence._id)\" [style.cursor]=\"pointer\"></i>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>-->\n<div id=\"accordionTable\" class=\"accordionParent\">\n  <div class=\"card mb-0\">\n    <div class=\"card-header collapsed\" data-toggle=\"collapse\" href=\"#collapseTable\">\n      <a class=\"card-title\">\n        <b>Visualizza</b>\n      </a>\n    </div>\n    <div id=\"collapseTable\" class=\"card-body collapse\" data-parent=\"#accordionTable\">\n       <table class=\"table table-striped\" [mfData]=\"sentences\" #mf=\"mfDataTable\" [mfRowsOnPage]=\"5\">\n        <thead>\n          <tr>\n            <th style=\"width: 15%\">\n            </th>\n            <th style=\"width: 65%\">\n              <mfDefaultSorter by=\"sentence\">Frase celebre</mfDefaultSorter>\n            </th>\n            <th style=\"width: 10%\">\n              <mfDefaultSorter by=\"time\">Quando</mfDefaultSorter>\n            </th>\n            <th style=\"width: 10%\">\n              <mfDefaultSorter by=\"delete\"></mfDefaultSorter>\n            </th>\n          </tr>\n        </thead>\n        <tbody>\n          <tr *ngFor=\"let sentence of sentences\">\n            <td><img src=\"{{sentence.srcPhoto}}\" /></td>\n            <td>{{sentence.sentence}}</td>\n            <td>{{sentence.time | date}}</td>\n            <td>\n              <i class=\"fa fa-trash\" aria-hidden=\"true\" (click)=\"deleteSentence(sentence._id)\" [style.cursor]=\"pointer\"></i>\n            </td>\n          </tr>\n        </tbody>\n        <tfoot>\n          <tr>\n            <td colspan=\"4\">\n              <mfBootstrapPaginator [rowsOnPageSet]=\"[5,10,25]\"></mfBootstrapPaginator>\n            </td>\n          </tr>\n        </tfoot>\n      </table>\n\n<!--\n      <table class=\"table table-striped\" [mfData]=\"data\" #mf=\"mfDataTable\" [mfRowsOnPage]=\"5\">\n        <thead>\n          <tr>\n            <th style=\"width: 20%\">\n              <mfDefaultSorter by=\"name\">UserName</mfDefaultSorter>\n            </th>\n            <th style=\"width: 50%\">\n              <mfDefaultSorter by=\"email\">UserEmail</mfDefaultSorter>\n            </th>\n            <th style=\"width: 10%\">\n              <mfDefaultSorter by=\"age\">Age</mfDefaultSorter>\n            </th>\n            <th style=\"width: 20%\">\n              <mfDefaultSorter by=\"city\">User City</mfDefaultSorter>\n            </th>\n          </tr>\n        </thead>\n        <tbody>\n          <tr *ngFor=\"let user of mf.data\">\n            <td>{{user.name}}</td>\n            <td>{{user.email}}</td>\n            <td class=\"text-right\">{{user.age}}</td>\n            <td>{{user.city | uppercase}}</td>\n          </tr>\n        </tbody>\n        <tfoot>\n          <tr>\n            <td colspan=\"4\">\n              <mfBootstrapPaginator [rowsOnPageSet]=\"[5,10,25]\"></mfBootstrapPaginator>\n            </td>\n          </tr>\n        </tfoot>\n      </table>-->\n    </div>\n  </div>\n</div>\n"
+module.exports = "<!--<div id=\"accordionTable\" class=\"accordionParent\">\n\n  <div class=\"card mb-0\">\n    <div class=\"card-header collapsed\" data-toggle=\"collapse\" href=\"#collapseTable\">\n      <a class=\"card-title\">\n          <b>Visualizza</b>\n      </a>\n    </div>\n    <div id=\"collapseTable\" class=\"card-body collapse\" data-parent=\"#accordionTable\">\n      <div  class=\"card card-block col-md-12\" *ngFor=\"let sentence of sentences\">\n        <div class=\"row\">\n          <div class=\"col-md-7\">\n            <h4 class=\"card-title\"> {{sentence.name}} - {{sentence.sentence}}</h4>\n          </div>\n          <div class=\"col-md-3\">\n            <h4 class=\"card-title\"> {{sentence.time | date}} </h4>\n          </div>\n          <div class=\"col-md-1\">\n            <i class=\"fa fa-trash\" aria-hidden=\"true\" (click)=\"deleteSentence(sentence._id)\" [style.cursor]=\"pointer\"></i>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>-->\n<div id=\"accordionTable\" class=\"accordionParent\">\n  <div class=\"card mb-0\">\n    <div class=\"card-header collapsed\" data-toggle=\"collapse\" href=\"#collapseTable\">\n      <a class=\"card-title\">\n        <b>Visualizza</b>\n      </a>\n    </div>\n    <div id=\"collapseTable\" class=\"card-body collapse\" data-parent=\"#accordionTable\">\n       <table class=\"table table-striped\" [mfData]=\"data\" #mf=\"mfDataTable\" [mfRowsOnPage]=\"5\">\n        <thead>\n          <tr>\n            <th style=\"width: 15%\">\n            </th>\n            <th style=\"width: 65%\">\n              <mfDefaultSorter by=\"sentence\">Frase celebre</mfDefaultSorter>\n            </th>\n            <th style=\"width: 10%\">\n              <mfDefaultSorter by=\"time\">Quando</mfDefaultSorter>\n            </th>\n            <th style=\"width: 10%\">\n              <mfDefaultSorter by=\"delete\"></mfDefaultSorter>\n            </th>\n          </tr>\n        </thead>\n        <tbody>\n          <tr *ngFor=\"let sentence of mf.data\">\n            <td><img src=\"{{sentence.srcPhoto}}\" /></td>\n            <td>{{sentence.sentence}}</td>\n            <td>{{sentence.time | date}}</td>\n            <td>\n              <i class=\"fa fa-trash\" aria-hidden=\"true\" (click)=\"deleteSentence(sentence._id)\" [style.cursor]=\"pointer\"></i>\n            </td>\n          </tr>\n        </tbody>\n        <tfoot>\n          <tr>\n            <td colspan=\"4\">\n              <mfBootstrapPaginator [rowsOnPageSet]=\"[5,10,25]\"></mfBootstrapPaginator>\n            </td>\n          </tr>\n        </tfoot>\n      </table>\n\n<!--\n      <table class=\"table table-striped\" [mfData]=\"data\" #mf=\"mfDataTable\" [mfRowsOnPage]=\"5\">\n        <thead>\n          <tr>\n            <th style=\"width: 20%\">\n              <mfDefaultSorter by=\"name\">UserName</mfDefaultSorter>\n            </th>\n            <th style=\"width: 50%\">\n              <mfDefaultSorter by=\"email\">UserEmail</mfDefaultSorter>\n            </th>\n            <th style=\"width: 10%\">\n              <mfDefaultSorter by=\"age\">Age</mfDefaultSorter>\n            </th>\n            <th style=\"width: 20%\">\n              <mfDefaultSorter by=\"city\">User City</mfDefaultSorter>\n            </th>\n          </tr>\n        </thead>\n        <tbody>\n          <tr *ngFor=\"let user of mf.data\">\n            <td>{{user.name}}</td>\n            <td>{{user.email}}</td>\n            <td class=\"text-right\">{{user.age}}</td>\n            <td>{{user.city | uppercase}}</td>\n          </tr>\n        </tbody>\n        <tfoot>\n          <tr>\n            <td colspan=\"4\">\n              <mfBootstrapPaginator [rowsOnPageSet]=\"[5,10,25]\"></mfBootstrapPaginator>\n            </td>\n          </tr>\n        </tfoot>\n      </table>-->\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -436,16 +436,6 @@ var ViewTableComponent = (function () {
     }
     // Angular 2 Life Cycle event when component has been initialized
     ViewTableComponent.prototype.ngOnInit = function () {
-        /*this.data = [{'name':'Anil', 'anil.singh581@gmail.com' :'ssd', 'age' :'34', 'city':'Noida, UP, India' },
-        {'name':'Anil', 'email' :'anil.singh581@gmail.com', 'age' :'34', 'city':'Noida' },
-        {'name':'Sunil', 'email' :'anil.singh581@gmail.com', 'age' :'34', 'city':'Noida' },
-        {'name':'Alok', 'email' :'anil.singh581@gmail.com', 'age' :'34', 'city':'Noida' },
-        {'name':'Tinku', 'email' :'anil.singh581@gmail.com', 'age' :'34', 'city':'Noida' },
-        {'name':'XYZ', 'email' :'anil.singh581@gmail.com', 'age' :'34', 'city':'Noida' },
-        {'name':'asas', 'email' :'anil.singh581@gmail.com', 'age' :'34', 'city':'Noida' },
-        {'name':'erer', 'email' :'anil.singh581@gmail.com', 'age' :'34', 'city':'Noida' },
-        {'name':'jhjh', 'email' :'anil.singh581@gmail.com', 'age' :'34', 'city':'Noida' }
-        ]*/
         this.getAllSentences();
     };
     ViewTableComponent.prototype.deleteSentence = function (id) {
@@ -462,7 +452,6 @@ var ViewTableComponent = (function () {
         this.http.get("sentences")
             .map(function (res) { return res.json(); })
             .subscribe(function (sentences) {
-            console.log(sentences);
             _this.emitService.sentences = sentences;
             sentences.map(function (sentence) {
                 switch (sentence.name) {
@@ -473,8 +462,20 @@ var ViewTableComponent = (function () {
                         sentence.srcPhoto = './../../assets/Noemi_20180808.jpg';
                         break;
                 }
+                /*  this.data = [{ 'name': 'Anil', 'anil.singh581@gmail.com': 'ssd', 'age': '34', 'city': 'Noida, UP, India' },
+                  { 'name': 'Anil', 'email': 'anil.singh581@gmail.com', 'age': '34', 'city': 'Noida' },
+                  { 'name': 'Sunil', 'email': 'anil.singh581@gmail.com', 'age': '34', 'city': 'Noida' },
+                  { 'name': 'Alok', 'email': 'anil.singh581@gmail.com', 'age': '34', 'city': 'Noida' },
+                  { 'name': 'Tinku', 'email': 'anil.singh581@gmail.com', 'age': '34', 'city': 'Noida' },
+                  { 'name': 'XYZ', 'email': 'anil.singh581@gmail.com', 'age': '34', 'city': 'Noida' },
+                  { 'name': 'asas', 'email': 'anil.singh581@gmail.com', 'age': '34', 'city': 'Noida' },
+                  { 'name': 'erer', 'email': 'anil.singh581@gmail.com', 'age': '34', 'city': 'Noida' },
+                  { 'name': 'jhjh', 'email': 'anil.singh581@gmail.com', 'age': '34', 'city': 'Noida' }
+                  ]
+                  console.log('data = ' + this.data[0].name)*/
             });
-            _this.sentences = sentences;
+            console.log('sentences = ' + sentences[0].sentence);
+            _this.data = sentences;
         });
     };
     ViewTableComponent = __decorate([
