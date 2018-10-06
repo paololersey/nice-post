@@ -31,7 +31,7 @@
       </a>
     </div>
     <div id="collapseTable" class="card-body collapse" data-parent="#accordionTable">
-       <table class="table table-striped" [mfData]="sentences" #mf="mfDataTable" [mfRowsOnPage]="5">
+       <table class="table table-striped" [mfData]="data" #mf="mfDataTable" [mfRowsOnPage]="5">
         <thead>
           <tr>
             <th style="width: 15%">
@@ -48,7 +48,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let sentence of sentences">
+          <tr *ngFor="let sentence of mf.data">
             <td><img src="{{sentence.srcPhoto}}" /></td>
             <td>{{sentence.sentence}}</td>
             <td>{{sentence.time | date}}</td>

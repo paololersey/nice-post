@@ -11,7 +11,7 @@ import 'rxjs/add/operator/map';
   styleUrls: ['./view-table.component.css']
 })
 export class ViewTableComponent implements OnInit {
-  public data : any
+  public data: any
   // Link to our api, pointing to localhost
   API = 'http://localhost:3000';
 
@@ -27,16 +27,7 @@ export class ViewTableComponent implements OnInit {
   }
   // Angular 2 Life Cycle event when component has been initialized
   ngOnInit() {
-    /*this.data = [{'name':'Anil', 'anil.singh581@gmail.com' :'ssd', 'age' :'34', 'city':'Noida, UP, India' },
-    {'name':'Anil', 'email' :'anil.singh581@gmail.com', 'age' :'34', 'city':'Noida' },
-    {'name':'Sunil', 'email' :'anil.singh581@gmail.com', 'age' :'34', 'city':'Noida' },
-    {'name':'Alok', 'email' :'anil.singh581@gmail.com', 'age' :'34', 'city':'Noida' },
-    {'name':'Tinku', 'email' :'anil.singh581@gmail.com', 'age' :'34', 'city':'Noida' },
-    {'name':'XYZ', 'email' :'anil.singh581@gmail.com', 'age' :'34', 'city':'Noida' },
-    {'name':'asas', 'email' :'anil.singh581@gmail.com', 'age' :'34', 'city':'Noida' },
-    {'name':'erer', 'email' :'anil.singh581@gmail.com', 'age' :'34', 'city':'Noida' },
-    {'name':'jhjh', 'email' :'anil.singh581@gmail.com', 'age' :'34', 'city':'Noida' }
-    ]*/
+
 
     this.getAllSentences();
   }
@@ -56,7 +47,7 @@ export class ViewTableComponent implements OnInit {
     this.http.get(`sentences`)
       .map(res => res.json())
       .subscribe(sentences => {
-        console.log(sentences)
+        
         this.emitService.sentences = sentences;
         sentences.map((sentence) => {
           switch (sentence.name) {
@@ -67,8 +58,21 @@ export class ViewTableComponent implements OnInit {
               sentence.srcPhoto = './../../assets/Noemi_20180808.jpg';
               break;
           }
+
+        /*  this.data = [{ 'name': 'Anil', 'anil.singh581@gmail.com': 'ssd', 'age': '34', 'city': 'Noida, UP, India' },
+          { 'name': 'Anil', 'email': 'anil.singh581@gmail.com', 'age': '34', 'city': 'Noida' },
+          { 'name': 'Sunil', 'email': 'anil.singh581@gmail.com', 'age': '34', 'city': 'Noida' },
+          { 'name': 'Alok', 'email': 'anil.singh581@gmail.com', 'age': '34', 'city': 'Noida' },
+          { 'name': 'Tinku', 'email': 'anil.singh581@gmail.com', 'age': '34', 'city': 'Noida' },
+          { 'name': 'XYZ', 'email': 'anil.singh581@gmail.com', 'age': '34', 'city': 'Noida' },
+          { 'name': 'asas', 'email': 'anil.singh581@gmail.com', 'age': '34', 'city': 'Noida' },
+          { 'name': 'erer', 'email': 'anil.singh581@gmail.com', 'age': '34', 'city': 'Noida' },
+          { 'name': 'jhjh', 'email': 'anil.singh581@gmail.com', 'age': '34', 'city': 'Noida' }
+          ]
+          console.log('data = ' + this.data[0].name)*/
         })
-        this.sentences = sentences;
+        console.log('sentences = ' + sentences[0].sentence)
+        this.data = sentences;
 
       })
   }
