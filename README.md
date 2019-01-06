@@ -1,18 +1,22 @@
 # nice-post
-# run locally
-sudo service mongod start
-sudo mongo
 
-On c:/repositories/nicepost 
+# run locally
+# db
+> sudo service mongod start
+> sudo mongo
+
+# backend
+On c:/repositories/nicepost, start the backend
 > node server.js
 
-To run the front-end
+# frontend
+In order to build the F.E. for development,
+> cd angular-front-end
+> npm start
 
-
+# run prod environment
 In order to build the F.E. for production,
 > cd angular-front-end
 > ng build --env=prod
-
-Otherwise:
-> cd angular-front-end
-> npm start
+Copy dist folder to angilar-front-end/dist
+> git push heroku master
