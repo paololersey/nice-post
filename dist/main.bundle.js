@@ -383,7 +383,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/filter-search/filter-search.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"accordionFilterSearch\" class=\"accordionParent\">\n  <div class=\"card\">\n    <div class=\"card-header collapsed\" data-toggle=\"collapse\" href=\"#collapseFilterSearch\">\n      <a class=\"card-title\">\n        <b>Cerca</b>\n      </a>\n    </div>\n\n    <div id=\"collapseFilterSearch\" class=\"card-body collapse\" data-parent=\"#accordionFilterSearch\">\n\n      <div class=\"row\">\n        <div class=\"col-xs-4\"><input class=\"form-control\" placeholder=\"Filtra per\" type=\"text\" #filterFrontEnd/></div>\n      </div>\n\n    </div>\n  </div>\n</div>\n\n\n<div class=\"clearfix\">\n  <div class=\"row\">&nbsp;</div>\n</div>\n"
+module.exports = "<div id=\"accordionFilterSearch\" class=\"accordionParent\">\n  <div class=\"card\">\n    <div class=\"card-header collapsed\" data-toggle=\"collapse\" href=\"#collapseFilterSearch\">\n      <a class=\"card-title\">\n        <b>Cerca</b>\n      </a>\n    </div>\n\n    <div id=\"collapseFilterSearch\" class=\"card-body collapse\" data-parent=\"#accordionFilterSearch\">\n\n      <div class=\"form-row\">\n        <div class=\"col-xs-4\"><input class=\"form-control\" placeholder=\"Filtra per\" type=\"text\" #filterFrontEnd /></div>\n      </div>\n\n    </div>\n  </div>\n</div>\n\n\n<div class=\"clearfix\">\n  <div class=\"row\">&nbsp;</div>\n</div>\n"
 
 /***/ }),
 
@@ -641,12 +641,8 @@ var ViewTableComponent = (function () {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return environment; });
-// The file contents for the current environment will overwrite these during build.
-// The build system defaults to the dev environment which uses `environment.ts`, but if you do
-// `ng build --env=prod` then `environment.prod.ts` will be used instead.
-// The list of which env maps to which file can be found in `.angular-cli.json`.
 var environment = {
-    production: false
+    production: true
 };
 
 
