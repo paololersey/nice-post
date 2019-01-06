@@ -48,7 +48,8 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let sentence of mf.data">
+          <tr *ngFor="let sentence of mf.data | filter:stringFilter">
+            <!--  <tr *ngFor="let sentence of mf.data">-->
             <td><img src="{{sentence.srcPhoto}}" /></td>
             <td>{{sentence.sentence}}</td>
             <td>{{sentence.time | date}}</td>

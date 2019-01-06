@@ -16,3 +16,8 @@ img {
     width: 60%
  }
 
+ .page-item.active .page-link  {
+   background-image: green
+ }
+
+

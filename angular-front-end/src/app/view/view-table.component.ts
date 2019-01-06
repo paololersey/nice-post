@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Http } from '@angular/http';
 import { EmitService } from './../common/service/emit.service';
-
+import { environment } from './../../environments/environment';
 // Import rxjs map operator
 import 'rxjs/add/operator/map';
 
@@ -11,14 +11,20 @@ import 'rxjs/add/operator/map';
   styleUrls: ['./view-table.component.css']
 })
 export class ViewTableComponent implements OnInit {
-  public data: any
+  public data: any;
+  public stringFilter: string;
   // Link to our api, pointing to localhost
-  API = 'http://localhost:3000';
-
+  public API: string = 'http://localhost:3000';
+  public urlGet: string = `sentences`;
+  public urlDelete: string = `sentences/`;
   // Declare empty list of sentences
   sentences: any[] = [];
 
   constructor(private http: Http, private emitService: EmitService) {
+    if(environment.production===false){
+      this.urlGet = this.API + `/sentences`;
+      this.urlDelete = this.API + `/sentences/`;
+    }
     emitService.flagSearch.subscribe(item => {
       console.log(item);
       this.getAllSentences();
@@ -28,12 +34,15 @@ export class ViewTableComponent implements OnInit {
   // Angular 2 Life Cycle event when component has been initialized
   ngOnInit() {
 
-
+    this.emitService.flagFilter.subscribe((stringFilter) => {
+      this.stringFilter = stringFilter;
+      console.log(stringFilter)
+    })
     this.getAllSentences();
   }
 
   deleteSentence(id) {
-    this.http.delete(`sentences/` + id)
+    this.http.delete(this.urlDelete + id)
       .map(res => res.json())
       .subscribe(() => {
         this.getAllSentences();
@@ -44,10 +53,10 @@ export class ViewTableComponent implements OnInit {
 
   // Get all Sentences from the API
   getAllSentences() {
-    this.http.get(`sentences`)
+    this.http.get(this.urlGet)
       .map(res => res.json())
       .subscribe(sentences => {
-        
+
         this.emitService.sentences = sentences;
         sentences.map((sentence) => {
           switch (sentence.name) {
@@ -59,17 +68,17 @@ export class ViewTableComponent implements OnInit {
               break;
           }
 
-        /*  this.data = [{ 'name': 'Anil', 'anil.singh581@gmail.com': 'ssd', 'age': '34', 'city': 'Noida, UP, India' },
-          { 'name': 'Anil', 'email': 'anil.singh581@gmail.com', 'age': '34', 'city': 'Noida' },
-          { 'name': 'Sunil', 'email': 'anil.singh581@gmail.com', 'age': '34', 'city': 'Noida' },
-          { 'name': 'Alok', 'email': 'anil.singh581@gmail.com', 'age': '34', 'city': 'Noida' },
-          { 'name': 'Tinku', 'email': 'anil.singh581@gmail.com', 'age': '34', 'city': 'Noida' },
-          { 'name': 'XYZ', 'email': 'anil.singh581@gmail.com', 'age': '34', 'city': 'Noida' },
-          { 'name': 'asas', 'email': 'anil.singh581@gmail.com', 'age': '34', 'city': 'Noida' },
-          { 'name': 'erer', 'email': 'anil.singh581@gmail.com', 'age': '34', 'city': 'Noida' },
-          { 'name': 'jhjh', 'email': 'anil.singh581@gmail.com', 'age': '34', 'city': 'Noida' }
-          ]
-          console.log('data = ' + this.data[0].name)*/
+          /*  this.data = [{ 'name': 'Anil', 'anil.singh581@gmail.com': 'ssd', 'age': '34', 'city': 'Noida, UP, India' },
+            { 'name': 'Anil', 'email': 'anil.singh581@gmail.com', 'age': '34', 'city': 'Noida' },
+            { 'name': 'Sunil', 'email': 'anil.singh581@gmail.com', 'age': '34', 'city': 'Noida' },
+            { 'name': 'Alok', 'email': 'anil.singh581@gmail.com', 'age': '34', 'city': 'Noida' },
+            { 'name': 'Tinku', 'email': 'anil.singh581@gmail.com', 'age': '34', 'city': 'Noida' },
+            { 'name': 'XYZ', 'email': 'anil.singh581@gmail.com', 'age': '34', 'city': 'Noida' },
+            { 'name': 'asas', 'email': 'anil.singh581@gmail.com', 'age': '34', 'city': 'Noida' },
+            { 'name': 'erer', 'email': 'anil.singh581@gmail.com', 'age': '34', 'city': 'Noida' },
+            { 'name': 'jhjh', 'email': 'anil.singh581@gmail.com', 'age': '34', 'city': 'Noida' }
+            ]
+            console.log('data = ' + this.data[0].name)*/
         })
         console.log('sentences = ' + sentences[0].sentence)
         this.data = sentences;

@@ -7,6 +7,7 @@ import { Injectable, Output, EventEmitter } from '@angular/core';
 export class EmitService {
 
     public flagSearch: EventEmitter<Boolean>;
+    public flagFilter: EventEmitter<String>  = new EventEmitter<String>();
 
     public sentences: any[] = [];
 

@@ -11,6 +11,8 @@ import { EmitService } from './common/service/emit.service';
 import { AddSentenceComponent } from './add-sentence/add-sentence.component';
 
 import {DataTableModule} from "angular-6-datatable";
+import { FilterSearchComponent } from './filter-search/filter-search.component';
+import { FilterPipe } from './common/pipe/filter.pipe';
 
 
 @NgModule({
@@ -18,7 +20,9 @@ import {DataTableModule} from "angular-6-datatable";
     AppComponent,
     ViewTableComponent,
     NavigatorComponent,
-    AddSentenceComponent
+    AddSentenceComponent,
+    FilterSearchComponent,
+    FilterPipe
   ],
   imports: [
     CommonModule,
