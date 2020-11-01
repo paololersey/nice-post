@@ -16,11 +16,15 @@ console.log("dirname = " + __dirname);
 var dbHost = 'mongodb://localhost/nice-post';
 /*********************************************/ 
 
-if(process.env.MONGODB_URI){
+/*if(process.env.MONGODB_URI){
    dbHost = process.env.MONGODB_URI;
    console.log('dbHost='+dbHost);
-}
-
+}*/
+//dbHost="mongodb+srv://mainUser:mainUser@cluster0.c11ys.mongodb.net/nicepost?authSource=admin&replicaSet=Cluster0-shard-0&readPreference=primary&appname=MongoDB%20Compass&ssl=true"
+//"mongodb+srv://mainUser:mainUser@cluster0.c11ys.mongodb.net/nicepost";
+//if(process.env.MONGO_MLAB){
+dbHost="mongodb://heroku_r5bwrx0k:pf8a1p1koj67b8tm3hjkdje2sf@ds139082.mlab.com:39082/heroku_r5bwrx0k";
+//}
 // Connect to mongodb
 mongoose.connect(dbHost);
 
@@ -49,7 +53,7 @@ router.get('/', (req, res) => {
 router.get('/sentences', (req, res) => {
     Sentence.find({}, (err, sentences) => {
         if (err) res.status(500).send(err)
-
+        console.log("ciao")
         res.status(200).json(sentences);
     });
 });
