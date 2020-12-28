@@ -1,0 +1,14 @@
+mongoexport -h ds139082.mlab.com:39082 -d heroku_r5bwrx0k -c sentences -u heroku_r5bwrx0k -p pf8a1p1koj67b8tm3hjkdje2sf -o sentences.csv --csv
+
+
+mongoimport -h cluster0.c11ys.mongodb.net -d nicepost -c sentences -u mainUser -p mainUser -i sentences.csv --csv
+
+
+
+mongodump -h ds139082.mlab.com:39082 -d heroku_r5bwrx0k -u heroku_r5bwrx0k -p pf8a1p1koj67b8tm3hjkdje2sf | gzip > collectiondump.gz
+
+
+mongorestore --gzip --archive=/home/paolo/repositories/nicepost/dump/collectiondump.gz --uri "mongodb+srv://mainUser:mainUser@cluster0.c11ys.mongodb.net/nicepost" --nsExclude "admin.system.*"
+
+
+
